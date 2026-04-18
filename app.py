@@ -1,17 +1,17 @@
-import streamlit as st
+ï»¿import streamlit as st
 import pandas as pd
 from src.data_utils import load_dataset
 from src.train import train_yield_model
 from src.optimize import optimize_inputs
 
-st.set_page_config(page_title="AI Crop Yield Optimizer", page_icon="??")
-st.title("AI-Powered Crop Yield Prediction & Optimization")
+st.set_page_config(page_title="AI Crop Yield Optimizer")
+st.title("AI-Powered Crop Yield Prediction and Optimization")
 
 df = load_dataset("data/sample_crop_data.csv")
 artifacts = train_yield_model(df)
 
 rainfall_mm = st.number_input("Rainfall (mm)", 100.0, 2000.0, 650.0)
-temperature_c = st.number_input("Temperature (°C)", 5.0, 50.0, 27.5)
+temperature_c = st.number_input("Temperature (C)", 5.0, 50.0, 27.5)
 soil_ph = st.number_input("Soil pH", 3.0, 10.0, 6.4)
 soil_moisture_pct = st.number_input("Soil Moisture (%)", 1.0, 100.0, 28.0)
 nitrogen_kg_ha = st.number_input("Nitrogen (kg/ha)", 0.0, 400.0, 90.0)
